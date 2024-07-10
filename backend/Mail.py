@@ -4,7 +4,6 @@ import os
 from email.mime.multipart import MIMEMultipart 
 from email.mime.text import MIMEText 
 from email.mime.base import MIMEBase 
-from email import encoders 
 
 type Email = str
 
@@ -22,7 +21,7 @@ class Email():
     @classmethod
     # https://www.geeksforgeeks.org/send-mail-gmail-account-using-python/
     # https://mailtrap.io/blog/python-send-email-gmail/
-    def send_email(cls, recipients: list[Email], subject: str, body: str, attachments: list[MIMEBase], is_html: bool = False):
+    def send_email(cls, recipients: list[Email], subject: str, body: str, attachments: list[MIMEBase] = [], is_html: bool = False):
         # creates SMTP session
         with smtplib.SMTP('smtp.gmail.com', 587) as s:
             # start TLS for security
@@ -42,4 +41,4 @@ class Email():
             s.sendmail(os.getenv("EMAIL_USERNAME"), recipients, message.as_string())
 
 if __name__ == "__main__":
-    Email.send_email("testbenchonly@gmail.com", ["testbenchonly5@gmail.com"], "Header2", "this is it")
+    Email.send_email(["testbenchonly5@gmail.com"], "Header2", "this is it")
