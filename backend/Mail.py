@@ -8,20 +8,15 @@ from email.mime.base import MIMEBase
 type Email = str
 
 load_dotenv()
-TO_USER = "testbenchonly@gmail.com"
-
-BODY = """
-    <html>
-        <body>
-        <p>This is an html email</p>
-        </body>
-    </html>
-"""
 class Email():
     @classmethod
     # https://www.geeksforgeeks.org/send-mail-gmail-account-using-python/
     # https://mailtrap.io/blog/python-send-email-gmail/
     def send_email(cls, recipients: list[Email], subject: str, body: str, attachments: list[MIMEBase] = [], is_html: bool = False):
+        """
+        Require writting email credential to .env
+        EMAIL_PASSWORD need to be generated from google not your actual password
+        """
         # creates SMTP session
         with smtplib.SMTP('smtp.gmail.com', 587) as s:
             # start TLS for security
