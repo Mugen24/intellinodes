@@ -36,4 +36,4 @@ class Email():
             s.sendmail(os.getenv("EMAIL_USERNAME"), recipients, message.as_string())
 
 if __name__ == "__main__":
-    Email.send_email(["testbenchonly5@gmail.com"], "Header2", "this is it")
+    Email.send_email(["testbenchonly@gmail.com"], "Header2", "this is it")

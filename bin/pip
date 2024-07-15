@@ -1,4 +1,4 @@
-#!/home/mugen/Documents/example_projects/intellinodes/bin/python3
+#!/home/mugen/Documents/intellinodes/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
